@@ -4,6 +4,30 @@ If you need multiple domains configured for your project, Warden will now automa
 
 Multiple top-level domains may also be setup by following the instructions below:
 
+### Global service configuration
+
+Add the top-level domains to the global service configuration for persistence.
+
+This implementation allows for easily overriding the use of CloudFlare DNS by setting custom values on WARDEN_DNSMASQ_NS1 and WARDEN_DNSMASQ_NS2.
+After changing settings in the env file, simply run warden svc up to recreate dnsmasq with the new configuration.
+
+1. Create or edit the following global services configuration file `~/.warden/.env` to inject additional configuration into the dnsmasq container via standard docker-compose .env file processing:
+   
+   ``` note::
+      This is the global service level configuration env file not the project env configuration.
+   
+   ```
+
+   ```dotenv
+      WARDEN_DNSMASQ_CONF_ADDITIONAL="address=/.local/127.0.0.1"
+      
+      OR
+      
+      WARDEN_DNSMASQ_CONF_ADDITIONAL="address=/.local/127.0.0.1\naddress=/.dev/127.0.0.1"
+   ```
+
+### Project configuration
+
 1. Sign certificates for your new domains:
    
        warden sign-certificate alternate1.test
