@@ -1,7 +1,11 @@
 # Change Log
 
 ## UNRELEASED
-[All Commits](https://github.com/wardenenv/warden/compare/0.15.0..main)
+[All Commits](https://github.com/wardenenv/warden/compare/0.16.0..main)
+
+_No changes yet_
+
+## Version [0.16.0](https://github.com/wardenenv/warden/tree/0.16.0) (2026-02-12)
 
 **Big Changes:**
 * PHP SPX support ([#820](https://github.com/wardenenv/warden/pull/820) by @SamJUK)
